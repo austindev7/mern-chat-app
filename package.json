@@ -2,11 +2,18 @@
   "name": "chat-app",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "install": "cd Backend && npm install && cd ../Frontend && npm install",
-  "build": "cd Frontend && npm run build",
-  "start": "cd Backend && npm start"
-},
+  "scripts": {
+    "install": "npm install --workspaces",
+    "build": "npm run build --workspace=Frontend",
+    "postinstall": "npm install --workspaces",
+    "start": "npm start --workspace=Backend",
+    "dev": "npm run dev --workspace=Backend" 
+  },
+  "workspaces": [
+    "Backend",
+    "Frontend",
+    "chat-app"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
